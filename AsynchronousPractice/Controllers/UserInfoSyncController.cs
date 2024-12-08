@@ -13,6 +13,8 @@ namespace AsynchronousPractice.Controllers
         [HttpGet]
         public ActionResult GetUserInfo()
         {
+          var userJson = System.IO.File.ReadAllText(USERS_FILE_PATH);
+          Thread.Sleep(1000);
           
         }
 
