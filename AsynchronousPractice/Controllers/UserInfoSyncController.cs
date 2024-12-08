@@ -27,8 +27,11 @@ namespace AsynchronousPractice.Controllers
 
         private int GetRandomUserId()
         {
+            Console.WriteLine("Reading users file");
             var userJson = System.IO.File.ReadAllText(USERS_FILE_PATH);
             Thread.Sleep(1000);
+
+            Console.WriteLine("Users file readed successfully");
 
             var userData = JsonSerializer.Deserialize<UserData>(userJson) 
                 ?? throw new NullReferenceException("Users json is empty!");
@@ -38,8 +41,11 @@ namespace AsynchronousPractice.Controllers
 
         private string GetUserLocation(int userId)
         {
+            Console.WriteLine("Reading location file");
             var locationJson = System.IO.File.ReadAllText(LOCATIONS_FILE_PATH);
             Thread.Sleep(3000);
+
+            Console.WriteLine("Location file readed successfully");
 
             var locationData = JsonSerializer.Deserialize<LocationData>(locationJson)
                 ?? throw new NullReferenceException("Location json is empty!");
@@ -50,8 +56,11 @@ namespace AsynchronousPractice.Controllers
 
         private string GetUserFavoriteGame(int userId)
         {
+            Console.WriteLine("Reading games file");
             var gameJson = System.IO.File.ReadAllText(GAMES_FILE_PATH);
             Thread.Sleep(3000);
+
+            Console.WriteLine("Games file readed successfully");
 
             var gameData = JsonSerializer.Deserialize<GameData>(gameJson)
                 ?? throw new NullReferenceException("Game json is empty!");
