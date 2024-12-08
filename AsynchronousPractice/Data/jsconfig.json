@@ -1,0 +1,28 @@
+{
+  "Users": [
+    {
+      "Id": 1
+    },
+    {
+      "Id": 2
+    },
+    {
+      "Id": 3
+    },
+    {
+      "Id": 4
+    },
+    {
+      "Id": 5
+    }
+  ],
+
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "Locations": [
+    {
+      "UserId": 1,
+      "LocationName": "New York"
+    },
+    {
+      "UserId": 2,
+      "LocationName": "Los Angeles"
+    },
+    {
+      "UserId": 3,
+      "LocationName": "Chicago"
+    },
+    {
+      "UserId": 4,
+      "LocationName": "Houston"
+    },
+    {
+      "UserId": 5,
+      "LocationName": "Phoenix"
+    }
+  ],
+
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ]
+}

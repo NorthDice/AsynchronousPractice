@@ -1,0 +1,33 @@
+{
+  "Games": [
+    {
+      "UserId": 1,
+      "FavoriteGame": "Call of Duty"
+    },
+    {
+      "UserId": 2,
+      "FavoriteGame": "The Witcher 3"
+    },
+    {
+      "UserId": 3,
+      "FavoriteGame": "The Last of Us"
+    },
+    {
+      "UserId": 4,
+      "FavoriteGame": "Red Dead Redemption 2"
+    },
+    {
+      "UserId": 5,
+      "FavoriteGame": "God of War"
+    }
+  ],
+
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ]
+}
