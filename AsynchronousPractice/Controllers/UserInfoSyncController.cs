@@ -43,7 +43,7 @@ namespace AsynchronousPractice.Controllers
         {
             Debug.WriteLine("Reading users file");
             var userJson = System.IO.File.ReadAllText(USERS_FILE_PATH);
-            Thread.Sleep(1000);
+            Task.Delay(1000).Wait();
 
             Debug.WriteLine("Users file readed successfully");
 
@@ -57,7 +57,7 @@ namespace AsynchronousPractice.Controllers
         {
             Debug.WriteLine("Reading location file");
             var locationJson = System.IO.File.ReadAllText(LOCATIONS_FILE_PATH);
-            Thread.Sleep(3000);
+            Task.Delay(2000).Wait();
 
             Debug.WriteLine("Location file readed successfully");
 
@@ -72,7 +72,7 @@ namespace AsynchronousPractice.Controllers
         {
             Debug.WriteLine("Reading games file");
             var gameJson = System.IO.File.ReadAllText(GAMES_FILE_PATH);
-            Thread.Sleep(3000);
+            Task.Delay(3000).Wait();
 
             Debug.WriteLine("Games file readed successfully");
 
