@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AsynchronousPractice.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace AsynchronousPractice.Controllers
 {
@@ -13,23 +15,48 @@ namespace AsynchronousPractice.Controllers
         [HttpGet]
         public ActionResult GetUserInfo()
         {
-          var userJson = System.IO.File.ReadAllText(USERS_FILE_PATH);
-          Thread.Sleep(1000);
-          
-        }
+            var userId = GetRandomUserId();
 
-        private string GetRandomUserIdAsync()
-        {
+            var location = GetUserLocation(userId);
 
-        }
-        private string GetUserLocationAsync(int userId)
-        {
+            var favoriteGame = GetUserFavoriteGame(userId);
+
+            return Ok(new { userId, location, favoriteGame });
 
         }
 
-        private string GetUserFavoriteGameAsync(int userId)
+        private int GetRandomUserId()
         {
+            var userJson = System.IO.File.ReadAllText(USERS_FILE_PATH);
+            Thread.Sleep(1000);
 
+            var userData = JsonSerializer.Deserialize<UserData>(userJson) 
+                ?? throw new NullReferenceException("Users json is empty!");
+
+            return userData.Users.First().Id;
+        }
+
+        private string GetUserLocation(int userId)
+        {
+            var locationJson = System.IO.File.ReadAllText(LOCATIONS_FILE_PATH);
+            Thread.Sleep(3000);
+
+            var locationData = JsonSerializer.Deserialize<LocationData>(locationJson)
+                ?? throw new NullReferenceException("Location json is empty!");
+
+            return locationData.Locations.First(l => l.UserId == userId).LocationName;
+
+        }
+
+        private string GetUserFavoriteGame(int userId)
+        {
+            var gameJson = System.IO.File.ReadAllText(GAMES_FILE_PATH);
+            Thread.Sleep(3000);
+
+            var gameData = JsonSerializer.Deserialize<GameData>(gameJson)
+                ?? throw new NullReferenceException("Game json is empty!");
+
+            return gameData.Games.First(g=>g.UserId == userId).FavoriteGame;
         }
     }
 }

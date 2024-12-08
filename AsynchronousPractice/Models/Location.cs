@@ -2,7 +2,7 @@
 {
     public class Location
     {
-        public int userId { get; set; }
+        public int UserId { get; set; }
         public string LocationName { get; set; } = string.Empty;
     }
 }
