@@ -23,9 +23,12 @@ namespace AsynchronousPractice.Controllers
             var location =  GetUserLocation(userId);
             var favoriteGame =  GetUserFavoriteGame(userId);
 
+            var result = await Task.WhenAll(location, favoriteGame);
 
+            var first = result[0];
+            var second = result[1];
 
-            return Ok(new { userId, location, favoriteGame });
+            return Ok(new { userId, first, second });
             
         }
 
